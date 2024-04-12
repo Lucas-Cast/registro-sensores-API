@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Measure = mongoose.model('Measure', {
     equipmentId: String,
-    timestamp: Number,
+    timestamp: Date,
     value: Number  
 })
 
