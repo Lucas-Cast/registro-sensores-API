@@ -2,7 +2,7 @@ const port = 3004
 
 const express = require('express')
 const serverApp = express()
-const routes = require('./controllers/measureControllers.js');
+const routes = require('./routes');
 
 serverApp.use(express.json());
 serverApp.use(routes);
