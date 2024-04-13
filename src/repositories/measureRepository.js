@@ -14,11 +14,11 @@ const addMeasurement = async ({equipmentId, timestamp, value}) => {
 
 const getMeasurementsByTime = async (hour) => {
     try{
-        let limitDate = hour * 60 * 60 * 1000 
+        const hourToMilissec = hour * 60 * 60 * 1000 
         const today = new Date().getTime()
-        const yesterday = today - limitDate
+        const limitDate = today - hourToMilissec
 
-        const measures = await Measure.find({ timestamp: { $gte: yesterday } })//.select('value')
+        const measures = await Measure.find({ timestamp: { $gte: limitDate } }).select('value')
         if (measures.length != 0) return measures
         throw "There are no collections"
         
