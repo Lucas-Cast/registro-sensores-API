@@ -10,7 +10,6 @@ serverApp.use(express.json())
 serverApp.use(routes);
 serverApp.use(express.static(path.join(__dirname, '..', '..', 'frontend', 'src')))
 
-console.log(path.join(__dirname, '..', '..', 'frontend', 'src', 'index.html'))
 serverApp.get('/', (req, res) => {
     
     res.render(path.join(__dirname, '..', '..', 'frontend', 'src', 'index.html'))
