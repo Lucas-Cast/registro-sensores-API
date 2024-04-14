@@ -3,13 +3,16 @@ const measureRepository = require('../repositories/measureRepository')
 const addMeasurement = (req, res) => {
 
     try{
+
+        //Getting the current time, equipmentId and value
         const timestamp = new Date().getTime()
         const {equipmentId, value} = req.body
     
+        //checking if equipmentId and value aren't empty
         if (!equipmentId) throw "An equipmentId is required"
         if (!value) throw "A value is required"
     
-    
+        
         measureRepository.addMeasurement({equipmentId, timestamp, value})
         .then(() => res.status(201).json({msg:"Measurement successfuly added"}))
         .catch(err => res.status(422).json({msg:"An error ocurred",
@@ -23,9 +26,15 @@ const addMeasurement = (req, res) => {
 const findByPeriod = (req, res) => {
     
     try{
+        //Getting the time 
         const hour = req.params.hour
+
+        //Calculating a limit timestamp to search for 
+        const hourToMilissec = hour * 60 * 60 * 1000 
+        const today = new Date().getTime()
+        const limitDate = today - hourToMilissec
         
-        measureRepository.getMeasurementsByTime(hour)
+        measureRepository.getMeasurementsByTime(limitDate)
         .then((measure) =>  res.status(200).json({measure}))
         .catch(err => res.status(404).json({msg:"An error ocurred",
         Error: err}))
@@ -38,13 +47,15 @@ const findByPeriod = (req, res) => {
 
 const addMeasurementByCSV = (req, res) => {
     try {
-
+        //Checking if a file was sent
         if (!req.files) throw 'You must send a file';
-
         const csvFile = req.files.csvFile
-        if (csvFile.mimetype !== 'text/csv') throw 'Your file must be a .csv'
 
+        //Checking if it is a .csv file
+        if (csvFile.mimetype !== 'text/csv') throw 'Your file must be a .csv'
         const csvFileContent = csvFile.data.toString('utf-8')
+        
+        //Checking if the file isn't empty
         if (csvFileContent === "") throw 'Your file is empty'
         
         //Formating content from .csv

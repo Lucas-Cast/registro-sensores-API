@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 require("dotenv").config()
 
-//credentials
+//Credentials
 const dbUser = process.env.DB_USER
 const dbPassword = process.env.DB_PASS
 
