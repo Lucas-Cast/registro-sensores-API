@@ -3,12 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Measurements Graphics</title>
 </head>
 <body>
-    <div>
-        <h1>Select a time limit to see the values graphic</h1>
+    <div class="h3Div">
+        <h3>Select a time limit to see the graphic</h1>
     </div>
     
+    <div class="inputDiv">
+        <select name="timeLimit" id="timeLimitSelect" class="timeLimitSelect">
+            <option value="">Select here</option>
+            <option value="24">1 day</option>
+            <option value="48">2 days</option>
+            <option value="168">1 week</option>
+            <option value="5208">1 month</option>
+        </select>
+        <input type="button" onclick="searchTimeLimit()" id="searchTimeLimitButton" class="searchButton" value="Search">
+        
+    </div>
+    <div>
+        <canvas id="valuesChart"></canvas>
+    </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="./js/buildingChart.js"></script>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+       
 </body>
 </html>
