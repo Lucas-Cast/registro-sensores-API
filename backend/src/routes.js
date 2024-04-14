@@ -1,7 +1,7 @@
-const express = require('express');
-const route = express.Router();
+const express = require('express')
+const route = express.Router()
 const fileUpload = require('express-fileupload')
-const measureControllers = require('./controllers/measureControllers'); 
+const measureControllers = require('./controllers/measureControllers')
 
 route.use(fileUpload())
 
