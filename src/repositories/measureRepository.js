@@ -12,6 +12,16 @@ const addMeasurement = async ({equipmentId, timestamp, value}) => {
     
 }
 
+const addManyMeasurements = async (Measurements) => {
+    try{
+        await Measure.insertMany(Measurements)
+        
+    }catch(err) {
+        throw err
+    }
+    
+}
+
 const getMeasurementsByTime = async (hour) => {
     try{
         const hourToMilissec = hour * 60 * 60 * 1000 
@@ -27,4 +37,4 @@ const getMeasurementsByTime = async (hour) => {
     }
     
 }
-module.exports = {addMeasurement, getMeasurementsByTime}
+module.exports = {addMeasurement, getMeasurementsByTime, addManyMeasurements}
