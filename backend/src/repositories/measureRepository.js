@@ -25,7 +25,7 @@ const addManyMeasurements = async (Measurements) => {
 const getMeasurementsByTime = async (limitDate) => {
     try{
 
-        const measures = await Measure.find({ timestamp: { $gte: limitDate } }).select('value')
+        const measures = await Measure.find({ timestamp: { $gte: limitDate } })
         if (measures.length != 0) return measures
         throw "No measurements registered after the time specified"
         
