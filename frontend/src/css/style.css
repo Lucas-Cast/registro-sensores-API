@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.h3Div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.h3Div h3 {
+    font-size: 24px;
+}
+
+.inputDiv {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.timeLimitSelect {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.searchButton {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.searchButton:hover {
+    background-color: #0056b3;
+}
