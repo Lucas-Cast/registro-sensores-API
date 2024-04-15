@@ -56,7 +56,7 @@ const addMeasurementByCSV = (req, res) => {
         const csvFileContent = csvFile.data.toString('utf-8')
         
         //Checking if the file isn't empty
-        if (csvFileContent === "") throw 'Your file is empty'
+        if (csvFileContent.length == 2) throw 'Your file is empty'
         
         //Formating content from .csv
         let formatedContent = csvFileContent.split()
