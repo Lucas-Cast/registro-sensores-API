@@ -4,9 +4,14 @@ function searchTimeLimit() {
     const measures = []
     const equipments = []
     const avaregeValues = []
+    const chart = Chart.getChart(ctx)
 
+    //Destroying chart if it is already set
+    if (chart) chart.destroy()
+    
     $.get(`/findByPeriod/${hour}`)
         .done( data => {
+            //Formating the data received
             Object.values(data)[0].forEach(element => {
                 measures.push(element)
             })
@@ -17,6 +22,8 @@ function searchTimeLimit() {
                 }
             })
             
+            //Calculating the avarege value of each equipment
+
             equipments.forEach((equipment, equipmentsIndex) => {
                 let quanitityOfValues = 0
                 avaregeValues.push(0)
@@ -31,6 +38,7 @@ function searchTimeLimit() {
             avaregeValues[equipmentsIndex] = avaregeValues[equipmentsIndex]/quanitityOfValues
             
             })
+            //Setting the chart
             new Chart(ctx, {
                 type: 'bar',
                   data: {
