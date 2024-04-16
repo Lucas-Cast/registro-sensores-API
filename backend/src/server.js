@@ -3,7 +3,6 @@ const port = 3004
 const express = require('express')
 const serverApp = express()
 const routes = require('./routes')
-const path = require('path')
 
 serverApp.use(express.json())
 serverApp.use(routes);
