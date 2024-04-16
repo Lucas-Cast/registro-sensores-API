@@ -2,10 +2,10 @@
   "name": "registro-sensores-api",
   "version": "1.0.0",
   "description": "API para receber os dados de sensores de uma empresa do setor de óleo e gás.",
-  "main": "src/server.js",
+  "main": "backend/src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon"
+    "start": "node backend/src/server.js"
   },
   "repository": {
     "type": "git",
